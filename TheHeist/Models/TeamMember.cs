@@ -11,7 +11,7 @@ namespace TheHeist.Models
         {
             Name = name;
             SkillLevel = skill;
-            courage = CourageFactor;
+            CourageFactor = courage;
         }
         public string Name { get; set; }    
         public int SkillLevel { get; set; }

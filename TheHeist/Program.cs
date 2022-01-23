@@ -23,18 +23,20 @@ $$/      $$/ $$$$$$$/$$/   $$/           $$/  $$$$$$/  $$$$$$/ $$/             $
 
 
 
-//Build Team
 
 
-var buildingTeam = true;
-var successfulInput = false;
 
-var heist = new HeistSimulator();
 Console.WriteLine(title);
-
+var heist = new HeistSimulator();
 heist.DetermineHeistDifficulty();
+heist.CreateTeam();
+heist.DetermineNumberofTests();
+heist.ShowResults();
 
-successfulInput = false;
+
+
+
+//successfulInput = false;
      // paraenthiesis will help with "" problem in teranry.
 
 //Console.Clear();
@@ -50,45 +52,23 @@ successfulInput = false;
 
 
 
-var numberofHeists = Console.ReadLine();
- successfulInput = false;
-var parsedNumberofHeists = 0;
+//var successfulInput = false;
+//var parsedNumberofHeists = 0;
+//var numberofHeists = Console.ReadLine();
+// successfulInput = false;
 
-while (!successfulInput)
-{
-    Console.WriteLine("How many heist simulations do you want to run?");
-    var numberOfHeists = Console.ReadLine();
-    successfulInput = int.TryParse(numberOfHeists, out parsedNumberofHeists);
-}
+//while (!successfulInput)
+//{
+//    Console.WriteLine("how many heist simulations do you want to run?");
+//    var numberofheists = Console.ReadLine();
+//    successfulInput = int.TryParse(numberofheists, out parsedNumberofHeists);
+//}
 
 //display results for each heist
 
-var successCount = 0;
-var failureCount = 0;
 
-for (int i = 0; i < parsedNumberofHeists; i++)
-{
-    var luck = new Random().Next(-10, 10); // get random number between -10 and 10
-    var sum = 0;
-    foreach (var member in teamMembers)
-    {
-        sum += member.SkillLevel;
-    }
-    var modifiedDifficulty = bankDifficulity + luck;
-
-    var heistResult = sum >= modifiedDifficulty;
-    if (heistResult)
-    {
-        successCount += 1;
-    }
-    else
-    {
-        failureCount++;
-    }
-    Console.WriteLine($"There were {successCount} successful heists and {failureCount} failures");
     //Console.WriteLine($"Your skill level is {sum} and the difficult is {bankDifficulity}");
-    //Console.WriteLine($"The heist was a {(heistResult ? "success" : "failure")}");
-}
+
 //if (sum >= bankDifficulity)    // MAKE IT WORK THEN REFACTOR TO MAKE IT READABLE LIKE ABOVE LINE!
 //{
 //    // DisplaySuccess();
