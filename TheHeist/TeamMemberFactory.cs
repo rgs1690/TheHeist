@@ -40,6 +40,7 @@ namespace TheHeist
                     var courage = Console.ReadLine();
                     successful = decimal.TryParse(courage, out parsedCourage);
                 }
+            var teamMember = new TeamMember(name, parsedSkill, parsedCourage);
             var retVal = new TeamMember(name, parsedSkill, parsedCourage);
       
             return retVal;
